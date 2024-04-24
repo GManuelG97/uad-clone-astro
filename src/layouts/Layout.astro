@@ -1,0 +1,32 @@
+---
+import Footer from "@/components/Footer.astro";
+import Menu from "@/components/Menu.astro";
+import { data} from "@/lib/data";
+
+export const meta = {
+  title: "Bienvenido",
+};
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  body{
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    -moz-font-feature-settings: 'liga';
+    -ms-font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+  }
+</style>

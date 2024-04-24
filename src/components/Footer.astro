@@ -1,0 +1,44 @@
+---
+interface Props{
+    campus: string;
+    address: string;
+    phone: string;
+}
+
+const {campus, address, phone } = Astro.props;
+---
+
+<footer class="flex flex-col items-center justify-center bg-neutral-800 h-40 w-full  border-b-2 border-red-800 bottom-0">
+    <section class="grid grid-cols-3 justify-start w-full items-center max-w-80 md:max-w-screen-xl">
+        <article class="flex flex-col justify-center items-center">
+            <aside class="grid grid-cols-4 justify-item-center items-center gap-2 max-w-80">
+                <img src="/img/svg/social/facebook.svg" alt="Facebook icon" class="h-10">
+                <img src="/img/svg/social/x.svg" alt="X icon" class="h-10">
+                <img src="/img/svg/social/youtube.svg" alt="YouTube icon" class="h-10">
+                <img src="/img/svg/social/instagram.svg" alt="instagram icon" class="h-10">
+            </aside>
+        </article>
+        <article class="max-w-80" >
+            <h2 class="text-white text-xl">
+                { campus}
+            </h2>
+            <br>
+            <p class="text-gray-600 text-xs">
+                { address }
+            </p>
+            <p class="text-gray-600 text-sm">
+                Telefono: { phone }
+            </p>
+        </article>
+        <article class="flex flex-wrap justify-end items-center">
+            <div class="relative align-bottom">
+                <img src="/img/svg/pasted-svg-671191x917.svg" alt="Mascota" class="h-40">
+            </div>
+            <div>
+                <a href="#">
+                    <img src="/img/svg/cid_durango_logo.svg" alt="Cid logo" class="h-14 align-bottom">
+                </a>
+            </div>
+        </article>
+    </section>
+</footer>

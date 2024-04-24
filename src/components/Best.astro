@@ -1,0 +1,25 @@
+<section class="bg-transparent h-52 w-full flex flex-col justify-center items-center ">
+  <article
+    class="max-w-80 md:max-w-screen-xl  "
+  >
+    <div class="self-center bg-white opacity-75 rounded-md p-2"id="best-text">
+      <h2 class="text-center text-4xl md:text-6xl text-current" >
+        La universidad más grande del país.
+      </h2>
+    </div>
+  </article>
+</section>
+
+<script>
+  const $header = document.querySelector("#best-text") as HTMLElement;  
+  const eventListener = () => {
+    document.addEventListener("changeTextColor", (event) => {
+      let e = event as CustomEvent;
+      const color = e.detail;
+      $header.style.color = color || "black";
+      $header.style.backgroundColor = (color === "black") ? "white" : "black";
+      
+    } );
+  };
+  eventListener();
+</script>

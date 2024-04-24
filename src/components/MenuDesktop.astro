@@ -1,0 +1,64 @@
+---
+import type { IRoute } from "@/types/routers.interface";
+import { Image } from "astro:assets";
+interface Props {
+  router: IRoute[];
+}
+const { router } = Astro.props;
+---
+
+<nav
+  class="max-w-screen-xl flex flex-wrap items-center mx-auto justify-between"
+>
+  <div class="flex items-center space-x-3">
+    <a href="/">
+      <Image
+        src="/img/svg/pasted-svg-1051691x212.svg"
+        alt="logo"
+        width="320"
+        height="60"
+        class="hover:opacity-65 transition ease-in-out delay-300"
+      />
+    </a>
+  </div>
+  <ul
+    class="flex flex-wrap items-center justify-end space-x-2 text-gray-500 transition ease-in-out delay-300"
+  >
+    {
+      router.map((item, index) => (
+        <li class="hover:text-red-600 group ">
+          <button class="flex items-center justify-between w-full py-2 px-2">
+            {item.name}
+            {item.subRoute && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class={
+                  "group-hover:rotate-180 h-6 w-6 ml-2 transition ease-in-out delay-250 "
+                }
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            )}
+          </button>
+          {item.subRoute && (
+            <ul class="bg-white border-gray-400 shadow hidden group-hover:block z-10 absolute max-w-64 transition ease-in-out delay-300">
+              {item.subRoute.map((subItem, index) => (
+                <li class="text-gray-600 hover:text-red-600 py-2 px-4 border-b-2 border-gray-400">
+                  <a href={subItem.url}>{subItem.name}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>

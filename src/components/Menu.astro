@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import { MenuMovil } from "@/components/react/MenuMovil.jsx";
+import { type IRoute } from "@/types/routers.interface";
+import MenuDesktop from "./MenuDesktop.astro";
+
+interface Props {
+  router: IRoute[];
+}
+const { router } = Astro.props;
+---
+
+<header
+  class="max-w-full fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-gray-200 shadow p-5"
+>
+  <section class="hidden lg:block">
+    <MenuDesktop router={router} />
+  </section>
+  <section class="block lg:hidden">
+    <MenuMovil client:only routers={router} />
+  </section>
+</header>

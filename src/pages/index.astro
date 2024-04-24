@@ -1,0 +1,41 @@
+---
+import Hero from "@/components/Hero.astro";
+
+import YouReady from "@/components/YouReady.astro";
+import Layout from "@/layouts/Layout.astro";
+import Carrusel from "@/components/react/Carrusel";
+import { images, data } from "@/lib/data";
+import Menu from "@/components/Menu.astro";
+import Footer from "@/components/Footer.astro";
+import Message from "@/components/Message.astro";
+import Best from "@/components/Best.astro";
+import Campus from "@/components/Campus.astro";
+---
+
+<Layout>
+  <Menu router={data.routers} />
+  <Carrusel client:visible images={images} />
+  <main
+    class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+  >
+    <div class="snap-center"></div>
+    <div class="snap-center">
+      <Hero />
+    </div>
+    <div class="snap-center">
+      <YouReady />
+    </div>
+    <div class="snap-center">
+      <Message />
+    </div>
+    <div class="snap-center">
+      <Best />
+      <Campus />
+    </div>
+    <Footer
+      campus="DURANGO CAMPUS RECTOR."
+      address="Avenida Universidad Autónoma de Durango #300 Colonia Jardines de Durango. Durango, Durango, México."
+      phone="(618) 129-5786 (618) 129-5901"
+    />
+  </main>
+</Layout>
